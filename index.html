@@ -15,7 +15,7 @@ body, html {
 }
 
 /* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-1-small {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,7 +24,12 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-  background-image: url("Imgur Album/7 - 9GyWj6z.png");
+  background-image: url("4 - wBdDYu6.png");
+  min-height: 100%;
+}
+
+.bgimg-1-small {
+  background-image: url("2 - r0N7pgn.png");
   min-height: 100%;
 }
 
@@ -100,7 +105,6 @@ body, html {
     <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
     <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
     <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
   </div>
 </div>
 
@@ -134,14 +138,14 @@ body, html {
     <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
       <p><b><i class="fa fa-user w3-margin-right"></i>Eryk Vaughn</b></p><br>
-      <img src="Imgur Album/1 - pmABWW9.png" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+      <img src="IMG_0728.JPG" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
     </div>
 
     <!-- Hide this text on small devices -->
     <!-- this is the side text for resume link to go-->
     <div class="w3-col m6 w3-hide-small w3-padding-large">
       <p>
-        I have experience in many fields ranging from software engineering, warehouse work, film data management, audio technical work, sale team, customer service, garage door technician, and much more. If you would like a copy of my resume feel free to click the link below and contact me.
+        I have experience in many fields ranging from software engineering, warehouse work, film data management, audio technical work, sales force, customer service, garage door technician, and much more. If you would like a copy of my resume feel free to click the link below and contact me.
       </p>
       <a href="#contact" ">
         <button class="w3-button w3-black w3-center w3-section" >
@@ -240,27 +244,6 @@ body, html {
 
 
       </div>
-
-      <p>If you would like to get in touch feel free to leave a message below</p>
-
-      <!-- this is the contact form-->
-
-      <form action="/action_page.php" target="_blank">
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-          </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-          </div>
-        </div>
-        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-        <button class="w3-button w3-black w3-right w3-section" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </form>
-
-
     </div>
   </div>
 </div>
@@ -271,13 +254,19 @@ body, html {
 </footer>
 
 <script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
+
+window.onresize = function() {
+            var size = window.innerWidth;
+            var homeimg = document.getElementById("home");
+            if(size < 800 ){
+              homeimg.classList.replace("bgimg-1", "bgimg-1-small");
+              console.log("its a small screen");
+            }
+            else{
+              homeimg.classList.replace("bgimg-1-small", "bgimg-1");
+              console.log("its a normal screen");
+            }
+        };
 
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};
